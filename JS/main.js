@@ -81,8 +81,21 @@ Enter amount :
         let validatePhonePayment=prompt(`
         YOU ARE ABOUT TO SEND ${phoneNoPayAmount} TO
         ${phoneNo}
+
+        1>YES
+        2>NO 
         
-        `)
+        
+        `
+        
+        
+        
+        )
+        if (validatePhonePayment==="1") {
+            alert('REQUEST PROCESSING')
+            alert('TRANSACTION COMPLETE!')
+            
+        } 
         console.log(validatePhonePayment)
         let validatePMPayment=prompt(`
         YOU ARE ABOUT TO BUY ${airtimeAmount} AIRTIME
