@@ -51,19 +51,14 @@ if (selectedNo=== "1") {
             
             console.log('processing')
         }
-         else if (validate =="2") {
-           
-          
-         }
-         else{
-            alert(`Invalid Request
-             Reload page`)
-         }
+    else if (paymentMethod==="3"){
+
         
-       
-            
     }
-    if (paymentMethod ==="2" ) {
+    
+    
+
+}
        
         let phoneNoPayAmount = prompt(`
 Enter amount : 
@@ -132,18 +127,7 @@ Enter amount :
         Enter Pin:
         `
     )
-    console.log(airtimePayPin)
-    let validateAirtimePayment=prompt(`
-        YOU ARE ABOUT TO BUY ${airtimeAmount} AIRTIME
-        >1 YES
-        >2 NO
-        
-        `)
-        if (validateAirtimePayment==="1") {
-            alert('REQUEST PROCESSING')
-            alert('TRANSACTION COMPLETE!')
-            
-        } else if (validateAirtimePayment==="2") {
+    
 
             let airtimeAmount = prompt(`
             Enter Amount:
@@ -180,5 +164,3 @@ alert(`
 Service Temporarily unavailable
 `)
 
-
-}
