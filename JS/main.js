@@ -1,19 +1,55 @@
-let selectedNo = prompt(`
-Eazybanking
+let selectedNo
+let validate
+let airtimeAmount
+let phone 
+let Pin
 
-1>Transfers
-2>Airtime
-3>Data
-4>Bills Payment
-5>Check Payment
-6>Open Account
-7>Card Requests
-8>Register
-`)
+EazyBanking();
+function EazyBanking() {
+    selectedNo = prompt(`
+    Eazybanking
+    
+    1>Transfers
+    2>Airtime
+    3>Data
+    4>Bills Payment
+    5>Check Payment
+    6>Open Account
+    7>Card Requests
+    8>Register
+    `)
+selection()
+}
 
 
-if (selectedNo=== "1") {
-  let paymentMethod=  prompt(
+
+function selection() {
+    if (selectedNo==="1") {
+        TransferPaymentMethod()
+        console.log(TransferPaymentMethod())
+    } else if (selectedNo==="2") {
+        BuyAirtime()
+    }
+    else if (selectedNo=== "3" ||selectedNo=== "4"||selectedNo=== "5"|| selectedNo=== "6" ||selectedNo==="7"||selectedNo==="7" ){
+
+       Unavailable()
+        
+        
+        }
+}
+function Unavailable() {
+    alert(`
+    Service Temporarily unavailable
+    `)
+    EazyBanking()
+}
+
+
+
+
+function TransferPaymentMethod() {
+    let paymentMethod
+    paymentMethod=  prompt(
         `
         1>Send to Account Number
         2>Pay with Phone Number
@@ -22,145 +58,177 @@ if (selectedNo=== "1") {
         `
         
     )
-    if (paymentMethod === "1") {
-        let amount =prompt(
-            `
-            Enter Amount:  `
-        )
-        let acctNo = prompt(
-            `
-        Enter Account number:   
-        `
-        )
-        let pin =prompt(`
-        ENTER PIN 
-        `)
-        let validate = prompt(`
-        YOU ARE ABOUT TO SEND ${amount} to
-        ${acctNo}
-
-        1>YES
-        2>NO 
-        `
-
-        
-        )
-        if (validate =="1") {
-            alert(`PROCESSING REQUEST!`)
-            alert(`TRANSFER WAS SUCCESSFUL!`)
-            
-            console.log('processing')
-        }
-    else if (paymentMethod==="3"){
-
+    if (paymentMethod==="1") {
+        payWithAcc()
+    } else if (paymentMethod==="2") {
+        PayWithPhoneNo()
         
     }
-    
+    else if (paymentMethod==="3"){
+
+        Unavailable()
+    }
+   
     
 
 }
-       
-        let phoneNoPayAmount = prompt(`
-Enter amount : 
-`   )
-    console.log(phoneNoPayAmount)
-    let phoneNo = prompt(`
-    Enter phone number : 
-    `
-    
-        )
-        console.log(phoneNo)
-        let phonePaypin =prompt(`
-        ENTER PIN 
-        `)
-        let validatePhonePayment=prompt(`
-        YOU ARE ABOUT TO SEND ${phoneNoPayAmount} TO
-        ${phoneNo}
 
-        1>YES
-        2>NO 
-        
-        
+function PayWithPhoneNo() {
+    let phoneNoPayAmount 
+     
+    validate
+     phoneNoPayAmount = prompt(`
+    Enter amount : 
+    `   )
+        console.log(phoneNoPayAmount)
+        let phoneNo = prompt(`
+        Enter phone number : 
         `
         
-        
-        
-        )
-        if (validatePhonePayment==="1") {
-            alert('REQUEST PROCESSING')
-            alert('TRANSACTION COMPLETE!')
-            
-        } 
-        console.log(validatePhonePayment)
-        let validatePMPayment=prompt(`
-        YOU ARE ABOUT TO BUY ${airtimeAmount} AIRTIME
-        >1 YES
-        >2 NO
-        
-        `)
-        if (validatePMPayment==="1") {
-            alert("Request processing")
-            alert("Transaction successful")
-            
-        } else {
-            
-        }
+            )
+            console.log(phoneNo)
+             phonePaypin =prompt(`
+            ENTER PIN 
+            `)
+            validate=prompt(`
+            YOU ARE ABOUT TO SEND ${phoneNoPayAmount} TO
+            ${phoneNo}!
     
-    }
+            1>YES
+            2>NO 
+            
+            
+            `)
+           console.log(validate)
+           CheckValidate()
+}
+
+function payWithAcc() {
+  
+   let acctNo
+
+    amount=prompt(
+        `
+        Enter Amount:  `
+    )
+    acctNo = prompt(
+        `
+    Enter Account number:   
+    `
+    )
+     pin =prompt(`
+    ENTER PIN 
+    `)
+     validate = prompt(`
+    YOU ARE ABOUT TO SEND ${amount} to
+    ${acctNo}
+
+    1>YES
+    2>NO 
+    `
+
     
-} else if (selectedNo=== "2") {
-    let buyAirtime =prompt(
+    )
+    console.log(validate)
+    
+    CheckValidate()
+    
+    
+}
+
+
+function BuyAirtime() {
+    let buyAirtimefor =prompt(
         `
         1>Self
         2>Others
         `
     )
-    let airtimeAmount = prompt(`
+    if (buyAirtimefor==="1") {
+        Self()
+    } else if (buyAirtimefor==="2") {
+        Others()
+    }
+}
+
+function Self() {
+    let airtimeAmount
+let phone
+    let Pin
+    airtimeAmount = prompt(`
     Enter Amount:
     `)
-    let phone = prompt(`
+   
+   
+     Pin =prompt(
+        `
+        Enter Pin:
+        `
+    )
+    validate= prompt(
+`
+YOU ARE ABOUT TO BUY ${airtimeAmount} TO ${phone} !
+>1
+>2
+`
+    )
+    CheckValidate()
+    
+}
+
+function Others() {
+   
+     
+    airtimeAmount = prompt(`
+    Enter Amount:
+    `)
+     phone = prompt(`
     Enter Phone number:
     `)
     console.log(phone)
-    let airtimePayPin =prompt(
+     Pin =prompt(
         `
         Enter Pin:
         `
     )
     
+    validate  = prompt(`
+    YOU ARE ABOUT TO SEND ${airtimeAmount} to
+    ${phone}
 
-            let airtimeAmount = prompt(`
-            Enter Amount:
-            `)
-            let phone = prompt(`
-            Enter Phone number:
-            `)
-            console.log(phone)
-            let airtimePayPin =prompt(
-                `
-                Enter Pin:
-                `
-            )
-            console.log(airtimePayPin)
-            let validateAirtimePayment=prompt(`
-                YOU ARE ABOUT TO BUY ${airtimeAmount} AIRTIME
-                >1 YES
-                >2 NO
-                
-                `)
-                if (validateAirtimePayment==="1") {
-                    alert('REQUEST PROCESSING')
-                    alert('TRANSACTION COMPLETE!')
-                    
-                } 
-            
-        }
-        console.log(validateAirtimePayment)
-
+    1>YES
+    2>NO 
+    `
+    )
+    CheckValidate()
 }
-else if (selectedNo=== "3" ||selectedNo=== "4"||selectedNo=== "5"|| selectedNo=== "6" ||selectedNo==="7"||selectedNo==="7" ){
+function CheckValidate() {
+     
+    if (validate ==="1") {
+        alert(`PROCESSING REQUEST!`)
+        alert(`TRANSFER WAS SUCCESSFUL!`)
+        
+        console.log('processing')
+        exitApp()
+    }
+     else if (validate ==="2") {
+        exitApp()
+      
+     }
+     else{
+        alert(`Invalid Request`)
+          console.log(`Invalid Request`)
+        exitApp()
+     }
+}
 
-alert(`
-Service Temporarily unavailable
-`)
+
+function exitApp() {
+    if( confirm("Do you want to perform another transaction?")==true){
+         EazyBanking()
+    }
+    else{
+        alert('Thanks for banking with us!')
+    }
+}
 
